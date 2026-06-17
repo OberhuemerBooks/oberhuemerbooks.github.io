@@ -2,11 +2,10 @@ backend:
   name: github
   repo: OberhuemerBooks/oberhuemerbooks.github.io
   branch: main
-  auth_type: implicit
-  app_id: Ov23lilZLwTHKXHpGMaK
+  base_url: https://api.netlify.com
+  auth_endpoint: /auth
+  site_domain: https://oberhuemer-books.org
 
-site_url: https://oberhuemer-books.org
-display_url: https://oberhuemer-books.org
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
