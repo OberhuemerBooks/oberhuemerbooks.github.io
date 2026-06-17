@@ -3,6 +3,9 @@ backend:
   repo: OberhuemerBooks/oberhuemerbooks
   branch: main
 
+site_url: https://oberhuemer-books.org
+display_url: https://oberhuemer-books.org
+
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
