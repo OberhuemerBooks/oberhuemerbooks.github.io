@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: DEIN_GITHUB_USERNAME/DEIN_REPO_NAME
+  repo: OberhuemerBooks/oberhuemerbooks
   branch: main
 
 media_folder: "images/uploads"
