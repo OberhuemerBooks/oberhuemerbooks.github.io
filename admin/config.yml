@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: OberhuemerBooks/oberhuemerbooks
+  repo: OberhuemerBooks/oberhuemerbooks.github.io
   branch: main
 
 site_url: https://oberhuemer-books.org
