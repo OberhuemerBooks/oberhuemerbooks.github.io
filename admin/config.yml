@@ -2,7 +2,7 @@ backend:
   name: github
   repo: OberhuemerBooks/oberhuemerbooks.github.io
   branch: main
-  base_url: https://api.netlify.com
+  base_url: https://6a32cd7471656d1db0a4067e--candid-starlight-d89419.netlify.app/
   auth_endpoint: /auth
   site_domain: https://oberhuemer-books.org
 
