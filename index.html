@@ -1,16 +1,29 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KRHPNTYP55"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-KRHPNTYP55');
+<script>
+  function loadGA() {
+    var script = document.createElement('script');
+    script.src = "https://www.googletagmanager.com/gtag/js?id=G-KRHPNTYP55";
+    script.async = true;
+    document.head.appendChild(script);
+
+    script.onload = function () {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+
+      gtag('js', new Date());
+      gtag('config', 'G-KRHPNTYP55', { 'anonymize_ip': true });
+    };
+  }
+
+  if (localStorage.getItem("cookiesAccepted") === "true") {
+    loadGA();
+  }
 </script>
-  <!--Google tag Ende -->
+    
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dominik P. Oberhuemer – Autor & Podcaster</title>
@@ -24,15 +37,10 @@
 
 <div id="cookie-banner" class="cookie-banner">
   <div class="cookie-content">
-    <p>
-      Diese Website verwendet Cookies (Google Analytics), um die Nutzung der Seite zu analysieren.
-      Du kannst zustimmen oder ablehnen.
-    </p>
+    <p>Diese Website verwendet Cookies (Google Analytics).</p>
 
-    <div class="cookie-buttons">
-      <button id="accept-cookies">Akzeptieren</button>
-      <button id="reject-cookies">Ablehnen</button>
-    </div>
+    <button id="accept-cookies">Akzeptieren</button>
+    <button id="reject-cookies">Ablehnen</button>
   </div>
 </div>
     
@@ -184,26 +192,10 @@
 </footer>
 
 
-<script>
-  const banner = document.getElementById("cookie-banner");
-  const acceptBtn = document.getElementById("accept-cookies");
-  const rejectBtn = document.getElementById("reject-cookies");
 
-  if (localStorage.getItem("cookiesAccepted")) {
-    banner.style.display = "none";
-  }
 
-  acceptBtn.addEventListener("click", function () {
-    localStorage.setItem("cookiesAccepted", "true");
-    banner.style.display = "none";
-    location.reload(); // lädt GA sauber nach
-  });
-
-  rejectBtn.addEventListener("click", function () {
-    localStorage.setItem("cookiesAccepted", "false");
-    banner.style.display = "none";
-  });
-</script>
+    <script src="script.js"></script>
+    
 </body>
 </html>
 
