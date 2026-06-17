@@ -2,6 +2,8 @@ backend:
   name: github
   repo: OberhuemerBooks/oberhuemerbooks.github.io
   branch: main
+  auth_scope: repo
+  auth_type: implicit
 
 site_url: https://oberhuemer-books.org
 display_url: https://oberhuemer-books.org
