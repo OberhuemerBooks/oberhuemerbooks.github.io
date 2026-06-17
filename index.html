@@ -22,6 +22,21 @@
 
 <body>
 
+<div id="cookie-banner" class="cookie-banner">
+  <div class="cookie-content">
+    <p>
+      Diese Website verwendet Cookies (Google Analytics), um die Nutzung der Seite zu analysieren.
+      Du kannst zustimmen oder ablehnen.
+    </p>
+
+    <div class="cookie-buttons">
+      <button id="accept-cookies">Akzeptieren</button>
+      <button id="reject-cookies">Ablehnen</button>
+    </div>
+  </div>
+</div>
+    
+
 <!-- Navigation -->
 <nav>
   <a href="index.html">Home</a>
@@ -168,6 +183,27 @@
 
 </footer>
 
+
+<script>
+  const banner = document.getElementById("cookie-banner");
+  const acceptBtn = document.getElementById("accept-cookies");
+  const rejectBtn = document.getElementById("reject-cookies");
+
+  if (localStorage.getItem("cookiesAccepted")) {
+    banner.style.display = "none";
+  }
+
+  acceptBtn.addEventListener("click", function () {
+    localStorage.setItem("cookiesAccepted", "true");
+    banner.style.display = "none";
+    location.reload(); // lädt GA sauber nach
+  });
+
+  rejectBtn.addEventListener("click", function () {
+    localStorage.setItem("cookiesAccepted", "false");
+    banner.style.display = "none";
+  });
+</script>
 </body>
 </html>
 
