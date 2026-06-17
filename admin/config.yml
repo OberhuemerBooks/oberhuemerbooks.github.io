@@ -4,8 +4,6 @@ backend:
   branch: main
   base_url: https://6a32cd7471656d1db0a4067e--candid-starlight-d89419.netlify.app/
   auth_endpoint: /auth
-  site_domain: https://oberhuemer-books.org
-
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
