@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: OberhuemerBooks/oberhuemerbooks.github.io
   branch: main
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
