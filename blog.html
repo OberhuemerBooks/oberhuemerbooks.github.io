@@ -1,0 +1,108 @@
+---
+layout: null
+permalink: /blog.html
+---
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <script>
+    function loadGA() {
+      var script = document.createElement('script');
+      script.src = "https://www.googletagmanager.com/gtag/js?id=G-KRHPNTYP55";
+      script.async = true;
+      document.head.appendChild(script);
+      script.onload = function () {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', 'G-KRHPNTYP55', { 'anonymize_ip': true });
+      };
+    }
+    if (localStorage.getItem("cookiesAccepted") === "true") loadGA();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Neuigkeiten, Einblicke und Gedanken von Dominik P. Oberhuemer zu Büchern, Schreiben und Podcast.">
+  <title>Blog – Dominik P. Oberhuemer</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+  <div id="cookie-banner" class="cookie-banner">
+    <div class="cookie-content">
+      <p>Diese Website verwendet Cookies (Google Analytics).</p>
+      <div class="cookie-buttons">
+        <button id="accept-cookies">Akzeptieren</button>
+        <button id="reject-cookies">Ablehnen</button>
+      </div>
+    </div>
+  </div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="podcast.html">Podcast</a>
+    <a href="buecher.html">Thriller</a>
+    <a href="kinderbuch.html">Kinderbuch</a>
+    <a href="blog.html" class="active" aria-current="page">Blog</a>
+  </nav>
+
+  <header class="blog-hero">
+    <div class="blog-hero-inner" data-aos="fade-up">
+      <span class="blog-kicker">Hinter den Geschichten</span>
+      <h1>Notizen aus der Schreibwerkstatt</h1>
+      <p>Neuigkeiten zu meinen Büchern, Einblicke ins Schreiben und Gedanken zwischen Thriller, Kinderbuch und Podcast.</p>
+    </div>
+  </header>
+
+  <main class="blog-main">
+    {% if site.posts.size > 0 %}
+      <section class="blog-grid" aria-label="Blogbeiträge">
+        {% for post in site.posts %}
+          <article class="blog-card" data-aos="fade-up" data-aos-delay="{{ forloop.index0 | times: 70 }}">
+            <a class="blog-card-image" href="{{ post.url | relative_url }}" aria-label="{{ post.title | escape }} lesen">
+              {% if post.image %}
+                <img src="{{ post.image | relative_url }}" alt="{{ post.image_alt | default: post.title | escape }}" loading="lazy">
+              {% else %}
+                <div class="blog-image-placeholder" aria-hidden="true"><span>DO</span></div>
+              {% endif %}
+            </a>
+            <div class="blog-card-content">
+              <p class="blog-meta">
+                <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d.%m.%Y" }}</time>
+                {% if post.category %}<span>{{ post.category }}</span>{% endif %}
+              </p>
+              <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+              <p class="blog-excerpt">{% if post.excerpt_text %}{{ post.excerpt_text }}{% else %}{{ post.excerpt | strip_html | truncate: 180 }}{% endif %}</p>
+              <a class="blog-read-more" href="{{ post.url | relative_url }}">Weiterlesen <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+        {% endfor %}
+      </section>
+    {% else %}
+      <section class="blog-empty" data-aos="fade-up">
+        <span aria-hidden="true">✦</span>
+        <h2>Hier entsteht etwas Neues.</h2>
+        <p>Der erste Einblick in die Schreibwerkstatt folgt bald.</p>
+      </section>
+    {% endif %}
+  </main>
+
+  <p class="footer-quote">„Jede Geschichte beginnt mit einer Frage.“</p>
+  <footer>
+    <div class="footer-content">
+      <p class="footer-name">© 2026 Dominik P. Oberhuemer</p>
+      <div class="footer-links">
+        <a href="about.html">Über mich</a>
+        <a href="kontakt.html">Kontakt</a>
+        <a href="impressum.html">Impressum</a>
+      </div>
+      <p class="footer-note">Autor | Thriller | True Crime Podcast</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init({ duration: 850, once: true });</script>
+  <script src="script.js"></script>
+</body>
+</html>
