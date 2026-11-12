@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <script>
+    function loadGA() {
+      var script = document.createElement('script');
+      script.src = "https://www.googletagmanager.com/gtag/js?id=G-KRHPNTYP55";
+      script.async = true;
+      document.head.appendChild(script);
+      script.onload = function () {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', 'G-KRHPNTYP55', { 'anonymize_ip': true });
+      };
+    }
+    if (localStorage.getItem("cookiesAccepted") === "true") loadGA();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ page.excerpt_text | default: page.excerpt | strip_html | strip_newlines | truncate: 160 | escape }}">
+  <title>{{ page.title }} – Dominik P. Oberhuemer</title>
+  <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
+</head>
+<body>
+  <div id="cookie-banner" class="cookie-banner">
+    <div class="cookie-content">
+      <p>Diese Website verwendet Cookies (Google Analytics).</p>
+      <div class="cookie-buttons">
+        <button id="accept-cookies">Akzeptieren</button>
+        <button id="reject-cookies">Ablehnen</button>
+      </div>
+    </div>
+  </div>
+
+  <nav>
+    <a href="{{ '/index.html' | relative_url }}">Home</a>
+    <a href="{{ '/podcast.html' | relative_url }}">Podcast</a>
+    <a href="{{ '/buecher.html' | relative_url }}">Thriller</a>
+    <a href="{{ '/kinderbuch.html' | relative_url }}">Kinderbuch</a>
+    <a href="{{ '/blog.html' | relative_url }}" class="active">Blog</a>
+  </nav>
+
+  <main class="post-page">
+    <article class="post-article">
+      <a class="post-back" href="{{ '/blog.html' | relative_url }}">← Zurück zum Blog</a>
+      <header class="post-header">
+        <p class="blog-meta">
+          <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d.%m.%Y" }}</time>
+          {% if page.category %}<span>{{ page.category }}</span>{% endif %}
+        </p>
+        <h1>{{ page.title }}</h1>
+        {% if page.excerpt_text %}<p class="post-lead">{{ page.excerpt_text }}</p>{% endif %}
+      </header>
+
+      {% if page.image %}
+        <figure class="post-cover">
+          <img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title | escape }}">
+          {% if page.image_caption %}<figcaption>{{ page.image_caption }}</figcaption>{% endif %}
+        </figure>
+      {% endif %}
+
+      <div class="post-content">{{ content }}</div>
+
+      <footer class="post-end">
+        <span aria-hidden="true">✦</span>
+        <p>Danke fürs Lesen.</p>
+        <a class="btn" href="{{ '/blog.html' | relative_url }}">Weitere Beiträge</a>
+      </footer>
+    </article>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p class="footer-name">© 2026 Dominik P. Oberhuemer</p>
+      <div class="footer-links">
+        <a href="{{ '/about.html' | relative_url }}">Über mich</a>
+        <a href="{{ '/kontakt.html' | relative_url }}">Kontakt</a>
+        <a href="{{ '/impressum.html' | relative_url }}">Impressum</a>
+      </div>
+      <p class="footer-note">Autor | Thriller | True Crime Podcast</p>
+    </div>
+  </footer>
+  <script src="{{ '/script.js' | relative_url }}"></script>
+</body>
+</html>
