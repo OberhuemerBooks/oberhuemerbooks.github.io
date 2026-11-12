@@ -10,56 +10,22 @@ collections:
     label: Blogposts
     folder: "_posts"
     create: true
-    extension: "md"
-    format: "frontmatter"
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
 
     fields:
-      - label: "Layout"
-        name: "layout"
-        widget: "hidden"
-        default: "post"
+      - label: Layout
+        name: layout
+        widget: hidden
+        default: post
 
-      - label: "Titel"
-        name: "title"
-        widget: "string"
+      - label: Titel
+        name: title
+        widget: string
 
-      - label: "Datum"
-        name: "date"
-        widget: "datetime"
+      - label: Datum
+        name: date
+        widget: datetime
 
-      - label: "Kategorie"
-        name: "category"
-        widget: "select"
-        options:
-          - "Schreiben"
-          - "Bücher"
-          - "Kinderbuch"
-          - "Podcast"
-          - "Persönliches"
-          - "Neuigkeiten"
-        default: "Neuigkeiten"
-
-      - label: "Kurzbeschreibung"
-        name: "excerpt_text"
-        widget: "text"
-        hint: "Ein bis zwei Sätze für die Blogübersicht."
-
-      - label: "Titelbild"
-        name: "image"
-        widget: "image"
-        required: false
-
-      - label: "Bildbeschreibung"
-        name: "image_alt"
-        widget: "string"
-        required: false
-
-      - label: "Bildunterschrift"
-        name: "image_caption"
-        widget: "string"
-        required: false
-
-      - label: "Text"
-        name: "body"
-        widget: "markdown"
+      - label: Text
+        name: body
+        widget: markdown
