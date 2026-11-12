@@ -1,5 +1,6 @@
 backend:
-  name: github
+  name: turbo-github
+  turbo_site_id: 47485749-208a-4a37-9561-090159282c92
   repo: OberhuemerBooks/oberhuemerbooks.github.io
   branch: main
 media_folder: "images/uploads"
