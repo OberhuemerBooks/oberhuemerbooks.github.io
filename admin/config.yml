@@ -3,15 +3,39 @@ backend:
   turbo_site_id: 47485749-208a-4a37-9561-090159282c92
   repo: OberhuemerBooks/oberhuemerbooks.github.io
   branch: main
+
+locale: de
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
+
 collections:
   - name: posts
     label: Blogposts
-    folder: posts
+    label_singular: Blogpost
+    folder: "_posts"
     create: true
-    slug: '{{slug}}'
+    delete: true
+    extension: md
+    format: frontmatter
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} – {{date}}"
+    sortable_fields: [date, title]
+    view_filters:
+      - label: Entwürfe
+        field: draft
+        pattern: true
     fields:
-            - {label: Titel, name: title, widget: string}
-            - {label: Datum, name: date, widget: datetime}
-            - {label: Text, name: body, widget: markdown}
+      - { label: Layout, name: layout, widget: hidden, default: post }
+      - { label: Titel, name: title, widget: string }
+      - { label: Datum, name: date, widget: datetime, date_format: "DD.MM.YYYY", time_format: "HH:mm" }
+      - label: Kategorie
+        name: category
+        widget: select
+        options: [Schreiben, Bücher, Kinderbuch, Podcast, Persönliches, Neuigkeiten]
+        default: Neuigkeiten
+      - { label: Kurzbeschreibung, name: excerpt_text, widget: text, hint: "Erscheint auf der Blogübersicht und unter der Überschrift. Etwa 1–2 Sätze." }
+      - { label: Titelbild, name: image, widget: image, required: false }
+      - { label: Bildbeschreibung, name: image_alt, widget: string, required: false, hint: "Kurze sachliche Beschreibung für Barrierefreiheit." }
+      - { label: Bildunterschrift, name: image_caption, widget: string, required: false }
+      - { label: Text, name: body, widget: markdown }
+
