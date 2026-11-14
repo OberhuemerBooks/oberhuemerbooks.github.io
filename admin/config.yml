@@ -1,31 +1,32 @@
 backend:
   name: turbo-github
   turbo_site_id: 47485749-208a-4a37-9561-090159282c92
+  branch: main
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 collections:
-  - name: posts
-    label: Blogposts
+  - name: "posts"
+    label: "Blogposts"
     folder: "_posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
 
     fields:
-      - label: Layout
-        name: layout
-        widget: hidden
-        default: post
+      - label: "Layout"
+        name: "layout"
+        widget: "hidden"
+        default: "post"
 
-      - label: Titel
-        name: title
-        widget: string
+      - label: "Titel"
+        name: "title"
+        widget: "string"
 
-      - label: Datum
-        name: date
-        widget: datetime
+      - label: "Datum"
+        name: "date"
+        widget: "datetime"
 
-      - label: Text
-        name: body
-        widget: markdown
+      - label: "Text"
+        name: "body"
+        widget: "markdown"
